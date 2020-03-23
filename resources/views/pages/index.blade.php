@@ -3,7 +3,7 @@
 @section('content')
 
 <h1> Corona Virus (Covid-19) Tracker Application </h1>
-<p> This application lists the current number of cases reported across the globe as of today {{ date('Y-m-d') }}</p>
+<p> This application lists the current number of cases reported across the globe as of today {{ date('d-F-Y') }}</p>
 <div class="jumbotron text-center">
 
 
@@ -34,7 +34,7 @@
       </div>
 </div>
 
-<h3> Current Breakdown </h3>
+<h3> Current Demographics Breakdown </h3>
 
 <div class="row col-md-14">
     <table class="table table-striped custab">
@@ -72,7 +72,7 @@
 
     <div class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
-          <p class="navbar-text pull-left">© 2020 - Site Built By Mr. M. Hamsheed
+          <p class="navbar-text pull-left">© 2020 - Site Built By M. Hamsheed
           </p>
           
           <a href="mailto:hamsheed993@gmail.com" class="navbar-btn btn-danger btn pull-right">

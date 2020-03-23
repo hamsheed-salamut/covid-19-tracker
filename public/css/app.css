@@ -8383,6 +8383,7 @@ button.close {
   top: 20px;
   font-size: 32px;
   display: block;
+  font-weight: bold;
 }
 
 .card-counter .count-name {
@@ -8394,14 +8395,20 @@ button.close {
   opacity: 0.5;
   display: block;
   font-size: 18px;
+  font-weight: bold;
 }
 
-p {
+p, th, h3 {
   color: black !important;
+  font-weight: bold;
 }
 
 h1 {
   color: black !important;
+  font-weight: bold;
+}
+
+tr, .btn-xs {
   font-weight: bold;
 }
 

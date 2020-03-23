@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="{{asset('img/virus.png')}}" type="image/icon" sizes="16x16">
+    <link rel="icon" href="/img/virus.png\" type="image/icon" sizes="16x16">
     <link rel="stylesheet" href="/css/app.css">
     <script src="/js/app.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
@@ -13,7 +13,6 @@
 </head>
 <script>
     $(document).ready(function() {
-       // $('.count-numbers').text('cholo');
        $(".count-numbers").counterUp({delay:15,time:1500});
 });
 </script>
