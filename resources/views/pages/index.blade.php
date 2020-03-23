@@ -48,9 +48,16 @@
             <th class="text-center">Recovered</th>
         </tr>
     </thead>
+    @php
+    $names = json_decode(file_get_contents("http://country.io/names.json"), true);
+   
+    @endphp
+  
             @foreach ($countries as $country)
+            @php $countryCode = strtolower(array_search($country['country'], $names)) . '.png'     @endphp
+
             <tr>
-                <td>{{$country['country']}}</td>
+                <td> <img src='http://www.geonames.org/flags/m/{{ $countryCode }}' width="24" height="24"> &nbsp; {{$country['country']}}   </td>
                 <td class="text-center">{{$country['cases']}}</td>
                 <td class="text-center"> @if( $country['todayCases'] == '0' )
                     {{$country['todayCases']}}

@@ -14,6 +14,14 @@
 <script>
     $(document).ready(function() {
        $(".count-numbers").counterUp({delay:15,time:1500});
+
+       async function getCountryName(name){
+            const response = await 
+            fetch(`https://restcountries.eu/rest/v2/name/${name}`);
+            const responseData = await response.json();
+
+            return responseData;
+            }
 });
 </script>
 <body>
