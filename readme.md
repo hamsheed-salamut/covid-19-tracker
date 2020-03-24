@@ -32,3 +32,12 @@ The Corona (COVID-19) Tracker Application gets the worldwide reporting about the
 ## Data Sources
 
 The data are primarily fetched from the [Cornal Novel (Covid-19)](https://github.com/CSSEGISandData/COVID-19)
+
+## Overview
+
+![corona](https://user-images.githubusercontent.com/23207774/77423508-c9944880-6de8-11ea-9a3f-65538b0ca0fd.png)
+
+
+## Try it out
+
+The Web Application is deployed at (https://coronapptracker.herokuapp.com/)
