@@ -10,7 +10,7 @@ class PagesController extends Controller
     public function index() {
 
         $client = new \GuzzleHttp\Client();
-        $request = $client->get("https://coronavirus-19-api.herokuapp.com/countries");
+        $request = $client->get("https://corona.lmao.ninja/countries?sort=cases");
         $responseCountry = $request->getBody()->getContents();
 
         $requestWorldwide = $client->get("https://coronavirus-19-api.herokuapp.com/all");
