@@ -81,7 +81,7 @@
             <i class="mdi mdi-earth"></i>
           </span> Demographics </h3> <br/> 
         <div class="row">
-          <div class="col-12 grid-margin">
+          <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
                 @php
@@ -92,8 +92,7 @@
                     $updateddate = date("Y-m-d H:i:s", $timestamp / 1000)
                 @endphp
                 <h4 class="card-title">Last Updated: {{$updateddate}}</h4>
-                <div class="table-responsive">
-                  <table class="table">
+                  <table class="table responsive">
                     <thead>
                       <tr>
                         <th> Country </th>
@@ -102,8 +101,6 @@
                         <th> Deaths </th>
                         <th> Today Deaths </th>
                         <th> Recovered </th>
-                        <th> Active </th>
-                        <th> Critical </th>
                       </tr>
                     </thead>
                     <tbody>
@@ -118,13 +115,10 @@
                         <td> <label class="badge badge-gradient-danger">{{$country['deaths']}}</label> </td>
                         <td> <label class="badge badge-gradient-danger">{{$country['todayDeaths']}}</label>  </td>
                         <td>  <label class="badge badge-gradient-success">{{$country['recovered']}}</label> </td>
-                        <td>  <label class="badge badge-gradient-warning">{{$country['active']}}</label> </td>
-                        <td>  <label class="badge btn-gradient-dark btn-fw">{{$country['critical']}}</label> </td>
                       </tr>
                       @endforeach
                     </tbody>
                   </table>
-                </div>
               </div>
             </div>
           </div>

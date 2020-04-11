@@ -107,9 +107,9 @@
 </script>
 <body>
     <div id='app'></div>
-
+        <div class="container">
         @yield('content')
 
-
+        </div>
 </body>
 </html>
