@@ -13,3 +13,6 @@
 
 Route::get('/', 'PagesController@index');
 
+Route::get('ajax', function(){ return view('ajax'); });
+Route::post('/postajax','PagesController@post');
+
