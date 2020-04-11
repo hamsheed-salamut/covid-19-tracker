@@ -34,9 +34,20 @@
       </div>
 </div>
 
-<h3> Current Demographics Breakdown </h3>
-
 <div class="row col-md-14">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title text-center">Worldwide Statistics</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+</div>
+
+<br/>
+
+
+<div class="row col-md-16 center">
+   <h3 class="text-center"> Current Demographics Breakdown </h3>
     <table class="table table-striped custab">
     <thead>
         <tr>
