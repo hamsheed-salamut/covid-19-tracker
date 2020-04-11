@@ -2,8 +2,8 @@
 
 @section('content')
 
-<h1> Corona Virus (Covid-19) Tracker Application </h1>
-<p> This application lists the current number of cases reported across the globe as of today {{ date('d-F-Y') }}</p>
+<h1 class="text-center" style="text-align: center; font-family: Cambria; font-size:60px;"> C<img src="https://img.icons8.com/nolan/64/coronavirus.png"/>VID-19 </h1>
+<p class="text-center"> This application tracks the current number of coronavirus (covid-19) cases reported across the globe as of today {{ date('d-F-Y') }}</p>
 <div class="jumbotron text-center">
 
 
@@ -43,6 +43,7 @@
             <th>Country</th>
             <th class="text-center">Total Cases</th>
             <th class="text-center">Today Cases</th>
+            <th class="text-center">Active Cases</th>
             <th class="text-center">Deaths</th>
             <th class="text-center">Today Deaths</th>
             <th class="text-center">Recovered</th>
@@ -58,6 +59,7 @@
                 @else
                 <a class="btn btn-info btn-xs" href="#"> {{ $country['todayCases'] }} </a>
                 @endif </td>
+                <td class="text-center"> <a class='btn btn-warning btn-xs' href="#"> {{$country['active']}} </a></td>
                 <td class="text-center"> @if( $country['deaths'] == '0' )
                     {{$country['deaths']}}
                 @else
