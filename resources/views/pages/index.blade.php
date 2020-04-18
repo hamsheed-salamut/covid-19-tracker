@@ -62,7 +62,7 @@
     </thead>
   
             @foreach ($countries as $country)
-            <tr>
+            <tr data-toggle="modal" data-id={{$country['country']}} data-target="#orderModal">
                 <td> <img src="{{ $country['countryInfo']['flag'] }}" width="24" height="24"> &nbsp; {{$country['country']}}   </td>
                 <td class="text-center">{{$country['cases']}}</td>
                 <td class="text-center"> @if( $country['todayCases'] == '0' )
