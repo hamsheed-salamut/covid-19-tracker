@@ -13,7 +13,7 @@ class PagesController extends Controller
         $request = $client->get("https://corona.lmao.ninja/v2/countries?sort=cases");
         $responseCountry = $request->getBody()->getContents();
 
-        $requestWorldwide = $client->get("https://coronavirus-19-api.herokuapp.com/all");
+        $requestWorldwide = $client->get("https://corona.lmao.ninja/v2/all");
         $responseWorldwide = $requestWorldwide->getBody()->getContents();
         $age = json_decode($responseCountry, true);
 

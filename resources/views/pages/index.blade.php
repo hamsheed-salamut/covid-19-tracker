@@ -10,15 +10,15 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
           <div class="card-counter primary">
-            <i class="fas fa-briefcase-medical"></i>
+            <i class="fas fa-briefcase-medical fa-5x"></i>
             <span class="count-numbers">{{ $worldwide['cases'] }}</span>
-            <span class="count-name">Cases</span>
+            <span class="count-name">Total Cases</span>
           </div>
         </div>
     
         <div class="col-md-4">
           <div class="card-counter success">
-            <i class="fas fa-heartbeat"></i>
+            <i class="fas fa-heartbeat fa-5x"></i>
             <span class="count-numbers">{{ $worldwide['recovered'] }}</span>
             <span class="count-name">Recovered</span>
           </div>
@@ -26,12 +26,39 @@
     
         <div class="col-md-4">
             <div class="card-counter danger">
-            <i class="fas fa-cross"></i>
+            <i class="fas fa-cross fa-5x"></i>
             <span class="count-numbers">{{ $worldwide['deaths'] }}</span>
             <span class="count-name">Deaths</span>
           </div>
         </div>
       </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-4">
+          <div class="card-counter info">
+            <i class="fas fa-capsules fa-5x"></i>
+            <span class="count-numbers">{{ $worldwide['active'] }}</span>
+            <span class="count-name">Active Cases</span>
+          </div>
+        </div>
+    
+        <div class="col-md-4">
+          <div class="card-counter warning">
+            <i class="fas fa-head-side-cough fa-5x"></i>
+            <span class="count-numbers">{{ $worldwide['critical'] }}</span>
+            <span class="count-name">Critical</span>
+          </div>
+        </div>
+    
+        <div class="col-md-4">
+            <div class="card-counter critical">
+            <i class="fas fa-lungs-virus fa-5x"></i>
+            <span class="count-numbers">{{ $worldwide['todayCases'] }}</span>
+            <span class="count-name">Today Cases</span>
+          </div>
+        </div>
+      </div>
+
 </div>
 
 <div class="row col-md-14">
@@ -48,6 +75,7 @@
 
 <div class="row col-md-16 center">
    <h3 class="text-center"> Current Demographics Breakdown </h3>
+
     <table class="table table-striped custab">
     <thead>
         <tr>
