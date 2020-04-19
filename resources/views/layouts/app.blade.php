@@ -127,10 +127,13 @@ $('#modelWindow').modal({
     $(".table-striped").find('tr[data-id]').on('click', function () {
 
         //do all your operation populate the modal and open the modal now. DOnt need to use show event of modal again
+        let countryName = $(this).data('id');
+        let countryFlag = $(this).data('flag');
+        
+        let imgSrc = "<img src='" + countryFlag + "' width='38' height='24'>";
 
-        $('#orderDetails').html($('<b> Order Id selected: ' + $(this).data('id') + '</b>'));
+        $('.country-details').html($(imgSrc +  ' <b>' + $(this).data('id') + '</b>'));
         $('#modelWindow').modal('show');
-        // line-chart-country
 
         var labelDeaths = []; 
         var dataDeaths = [];
@@ -142,53 +145,47 @@ $('#modelWindow').modal({
         var dataRecovered = [];
         const entries = Object.entries
         const fromEntries = Object.fromEntries
-        const URL = "https://corona.lmao.ninja/v2/historical/mauritius?lastdays=30"
+        const URL = "https://corona.lmao.ninja/v2/historical/"+ countryName +"?lastdays=30"
+
         async function go() {  
-        const { timeline: { cases, deaths } } = await (await fetch(URL)).json();
-        const newCases = fromEntries(deltas(entries(cases)));
-        const newDeaths = fromEntries(deltas(entries(deaths)));
+
+        const { timeline: { cases, deaths, recovered } } = await (await fetch(URL)).json();
+        
+        const newCases = fromEntries((entries(cases)));
+        const newDeaths = fromEntries((entries(deaths)));
+        const newRecovered = fromEntries((entries(recovered)));
+
 
         labelCases.push(Object.keys(newCases));
+        
         dataCases.push(Object.values(newCases));
-        console.log(labelCases[0]);
-        console.log(`New cases: ${JSON.stringify(newCases, null, 2)}`)
-        console.log(`New deaths: ${JSON.stringify(newDeaths, null, 2)}`)
-        }
-        function nonZero(arr) {
-        return arr.filter(([_,v]) => v > 0)
-        }
-        function deltas(arr) {
-        let prev = 0
-        return arr.reduce((acc, [date, curr]) => {
-            acc.push([date, curr - prev])
-            prev = curr
-            return acc
-        }, [])
-        }
-        go()
-
-        console.log(dataCases);
-        console.log(labelCases);
-
-            var ctx = document.getElementById('line-chart-country').getContext('2d');
+        dataDeaths.push(Object.values(newDeaths));
+        dataRecovered.push(Object.values(newRecovered));
+        
+        var ctx = document.getElementById('line-chart-country').getContext('2d');
             var chart = new Chart(ctx, {
             // The type of chart we want to create
             type: 'line',
 
             // The data for our dataset
             data: {
-                labels:  ["3/19/20", "3/20/20", "3/21/20", "3/22/20", "3/23/20", "3/24/20", "3/25/20", "3/26/20", "3/27/20", "3/28/20", "3/29/20", "3/30/20", "3/31/20", "4/1/20", "4/2/20", "4/3/20", "4/4/20", "4/5/20", "4/6/20", "4/7/20", "4/8/20", "4/9/20", "4/10/20", "4/11/20", "4/12/20", "4/13/20", "4/14/20", "4/15/20", "4/16/20", "4/17/20"],
+                labels:  labelCases[0],
                 datasets: [{
                     label: 'Deaths',
                     borderColor: '#ef5350',
-                    lineTension: 0,  
-                    data: [3, 9, 2, 14, 8, 3, 6, 33, 3, 18, 5, 21, 15, 38, 8, 17, 0, 31, 7, 4, 5, 41, 4, 6, 5, 0, 0, 4, 0, 0],
+                    data: dataDeaths[0],
                     fill: false
                 },
                 {
                     label: 'Cases',
                     borderColor: '#007bff', 
-                    data: [3, 9, 2, 14, 8, 6, 6, 33, 13, 8, 5, 21, 15, 18, 8, 17, 10, 31, 17, 24, 5, 41, 4, 1, 5, 0, 0, 0, 0, 0],
+                    data: dataCases[0],
+                    fill: false
+                }, 
+                {
+                    label: 'Recovered',
+                    borderColor: '#5cb85c', 
+                    data: dataRecovered[0],
                     fill: false
                 }
                 ]
@@ -218,6 +215,12 @@ $('#modelWindow').modal({
             }
             });
 
+
+
+        }
+
+        go()
+
     });
 
 });
@@ -233,14 +236,14 @@ $('#modelWindow').modal({
     </div>
 
     <div class="modal fade" id="modelWindow" role="dialog">
-        <div class="modal-dialog modal-dialog modal-lg vertical-align-center">
+        <div class="modal-dialog modal-dialog modal-md vertical-align-center">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Statistics</h4>
+              <h4 class="modal-title info">Statistics</h4>
             </div>
             <div class="modal-body">
-                <h3 class="card-title text-center">Mauritius</h3>
+                <h3 class="card-title text-center country-details">Mauritius</h3> <br/>
                 <canvas id="line-chart-country"></canvas>
             </div>
             <div class="modal-footer">
