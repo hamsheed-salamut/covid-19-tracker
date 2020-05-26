@@ -26,5 +26,6 @@ The Web Application is deployed at (https://coronapptracker.herokuapp.com/)
 - It only includes people tested
 - Cases only include people who were tested and confirmed positive. Testing rules and availability vary by country. Some areas may not have data because they haven’t published their data or haven’t done so recently.
 
-> Why do I see different data from different sources?
-There are various sources that are tracking and aggregating coronavirus data. They update at different times and may have different ways of gathering data.
+**Why do I see different data from different sources?**
+
+>There are various sources that are tracking and aggregating coronavirus data. They update at different times and may have different ways of gathering data.
