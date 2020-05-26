@@ -1,4 +1,4 @@
-## Corona (COVID-19) Tracker Application
+## Novel Coronavirus (COVID-19) Tracker Application
 
 The Corona (COVID-19) Tracker Application gets the worldwide reporting about the corona disease. This dataset includes time series data tracking the number of people affected by COVID-19 worldwide, including:
 
