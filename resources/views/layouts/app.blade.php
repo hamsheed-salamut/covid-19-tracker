@@ -115,6 +115,7 @@ p {
 
 });
 
+
 $('#modelWindow').modal({
         keyboard: true,
         backdrop: "static",
@@ -126,15 +127,6 @@ $('#modelWindow').modal({
 
     $(".table-striped").find('tr[data-id]').on('click', function () {
 
-        //do all your operation populate the modal and open the modal now. DOnt need to use show event of modal again
-        let countryName = $(this).data('id');
-        let countryFlag = $(this).data('flag');
-        
-        let imgSrc = "<img src='" + countryFlag + "' width='38' height='24'>";
-
-        $('.country-details').html($(imgSrc +  ' <b>' + $(this).data('id') + '</b>'));
-        $('#modelWindow').modal('show');
-
         var labelDeaths = []; 
         var dataDeaths = [];
 
@@ -143,13 +135,22 @@ $('#modelWindow').modal({
 
         var labelRecovered = [];
         var dataRecovered = [];
+
+        //do all your operation populate the modal and open the modal now. DOnt need to use show event of modal again
+        var countryName = $(this).data('id');
+        var countryFlag = $(this).data('flag');
+        
+        var imgSrc = "<img src='" + countryFlag + "' width='38' height='24'>";
+
+        $('.country-details').html($(imgSrc +  ' <b>' + $(this).data('id') + '</b>'));
+        $('#modelWindow').modal('show');
+
         const entries = Object.entries
         const fromEntries = Object.fromEntries
         const URL = "https://corona.lmao.ninja/v2/historical/"+ countryName +"?lastdays=30"
 
-        async function go() {  
 
-        const { timeline: { cases, deaths, recovered } } = await (await fetch(URL)).json();
+        const { timeline: { cases, deaths, recovered } } =  fetch(URL).json();
         
         const newCases = fromEntries((entries(cases)));
         const newDeaths = fromEntries((entries(deaths)));
@@ -217,9 +218,6 @@ $('#modelWindow').modal({
 
 
 
-        }
-
-        go()
 
     });
 

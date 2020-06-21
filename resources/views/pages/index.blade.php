@@ -90,6 +90,7 @@
     </thead>
   
             @foreach ($countries as $country)
+            
             <tr data-toggle="modal" data-id={{$country['country']}} data-flag={{$country['countryInfo']['flag']}} data-target="#orderModal">
                 <td> <img src="{{ $country['countryInfo']['flag'] }}" width="24" height="24"> &nbsp; {{$country['country']}}   </td>
                 <td class="text-center">{{$country['cases']}}</td>
