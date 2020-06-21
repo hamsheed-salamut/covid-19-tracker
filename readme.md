@@ -6,6 +6,13 @@ The Corona (COVID-19) Tracker Application gets the worldwide reporting about the
 - the number of people who have reportedly died while being infected with the coronavirus
 - the number of people who have reportedly recovered from it
 
+## Development Environment & Technologies
+
+- VS Code 
+- Laravel
+- Guzzle Http Client for consuming Api 
+- Chart.js 
+
 ## Data Sources
 
 The data are primarily fetched from the [Cornal Novel (Covid-19)](https://github.com/CSSEGISandData/COVID-19)
@@ -17,7 +24,7 @@ The data are primarily fetched from the [Cornal Novel (Covid-19)](https://github
 
 ## Try it out
 
-The Web Application is deployed at (https://coronapptracker.herokuapp.com/)
+The Web Application is deployed at https://coronapptracker.herokuapp.com/
 
 ## About this data
 
